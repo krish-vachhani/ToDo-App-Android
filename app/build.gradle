@@ -73,6 +73,10 @@ dependencies {
     kapt "com.android.databinding:compiler:3.2.0-alpha10"
     kapt "androidx.databinding:databinding-common:7.0.4"
 
+    //Fragments
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
+
+
     // RecyclerView Animator
     implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
 
