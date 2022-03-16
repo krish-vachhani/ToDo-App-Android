@@ -13,8 +13,6 @@ import com.example.todoapp.data.models.ToDoData
 import com.example.todoapp.data.viewmodel.ToDoViewModel
 import com.example.todoapp.databinding.FragmentUpdateBinding
 import com.example.todoapp.fragments.SharedViewModel
-import kotlinx.android.synthetic.main.fragment_update.*
-import kotlinx.android.synthetic.main.fragment_update.view.*
 
 
 class UpdateFragment : Fragment() {
@@ -26,7 +24,7 @@ class UpdateFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentUpdateBinding.inflate(inflater, container, false)
         binding.args = args
@@ -52,9 +50,9 @@ class UpdateFragment : Fragment() {
     }
 
     private fun updateItem() {
-        val title = current_title_et.text.toString()
-        val description = current_description_et.text.toString()
-        val getPriority = current_priorities_spinner.selectedItem.toString()
+        val title = binding.currentTitleEt.text.toString()
+        val description = binding.currentDescriptionEt.text.toString()
+        val getPriority = binding.currentPrioritiesSpinner.selectedItem.toString()
         val validation = mSharedViewModel.verifyDataFromUser(title, description)
         if (validation) {
             val updatedItem = ToDoData(
