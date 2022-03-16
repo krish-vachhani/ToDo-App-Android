@@ -15,8 +15,8 @@ import com.example.todoapp.databinding.FragmentListBinding
 import com.example.todoapp.fragments.SharedViewModel
 import com.example.todoapp.fragments.list.adapter.ListAdapter
 import com.example.todoapp.utils.hideKeyboard
+import com.example.todoapp.utils.observeOnce
 import com.google.android.material.snackbar.Snackbar
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 
 class ListFragment : Fragment(), SearchView.OnQueryTextListener {
@@ -42,6 +42,7 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         mToDoViewModel.getAllData.observe(viewLifecycleOwner) { data ->
             mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setData(data)
+            binding.recyclerView.scheduleLayoutAnimation()
         }
 
         //Set Menu
@@ -58,9 +59,6 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         recyclerView.adapter = adapter
         recyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        recyclerView.itemAnimator = SlideInUpAnimator().apply {
-            addDuration = 300
-        }
 
         // Swipe to Delete
         swipeToDelete(recyclerView)
@@ -98,10 +96,10 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         when (item.itemId) {
             R.id.menu_delete_all -> confirmRemoval()
             R.id.menu_priority_high -> mToDoViewModel.sortByHighPriority.observe(
-                this
+                viewLifecycleOwner
             ) { adapter.setData(it) }
             R.id.menu_priority_low -> mToDoViewModel.sortByLowPriority.observe(
-                this
+                viewLifecycleOwner
             ) { adapter.setData(it) }
         }
         return super.onOptionsItemSelected(item)
@@ -123,7 +121,7 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private fun searchThroughDatabase(query: String) {
         val searchQuery = "%$query%"
-        mToDoViewModel.searchDatabase(searchQuery).observe(this) { list ->
+        mToDoViewModel.searchDatabase(searchQuery).observeOnce(viewLifecycleOwner) { list ->
             list?.let {
                 adapter.setData(it)
             }

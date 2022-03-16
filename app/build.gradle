@@ -82,6 +82,4 @@ dependencies {
     // Kotlin components
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
-    // Recycler View Animator
-    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
 }
