@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/drawable/custom_input.xml" value="0.1755" />
+        <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/drawable/ic_splashscreen.xml" value="0.1755" />
         <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/layout/fragment_add.xml" value="0.22826086956521738" />
         <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/layout/fragment_list.xml" value="0.22826086956521738" />
+        <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/layout/fragment_splash.xml" value="0.22826086956521738" />
         <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/layout/fragment_update.xml" value="0.22826086956521738" />
         <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/layout/row_layout.xml" value="0.264" />
         <entry key="..\:/Coding/AndroidStudioProjects/ToDo-App-Android/app/src/main/res/menu/add_fragment_menu.xml" value="0.25" />
